@@ -1,0 +1,15 @@
+// GraficaListaSimple
+digraph {
+	0 [label=hola]
+	1 [label=batman]
+		0 -> 1 [constraint=false]
+	1 [label=batman]
+	2 [label=superboy]
+		1 -> 2 [constraint=false]
+	2 [label=superboy]
+	3 [label=megan]
+		2 -> 3 [constraint=false]
+	3 [label=megan]
+	4 [label=zatana]
+		3 -> 4 [constraint=false]
+}

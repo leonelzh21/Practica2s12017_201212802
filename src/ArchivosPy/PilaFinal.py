@@ -1,36 +1,35 @@
 from ListaEnlazada import Nodo
 from graphviz import Digraph
 
-class Cola(object):
+class Pila(object):
 	def __init__(self):
 		self.inicio = None
 		self.fin = None
-		self.indice = 0
+		self.index = 0
 
-
-	def queue(self, numero):
-		nuevo = Nodo(numero,self.indice)
-		self.indice = self.indice + 1
+	#Metodo que inserta al inicio de la pila cada elemento
+	def push(self,numero):
+		nuevo = Nodo(numero,self.index)
+		self.index = self.index + 1
 		if self.inicio == None:
 			self.inicio = nuevo
 			self.fin = nuevo
 		else:
-			self.fin.siguiente = nuevo
-			self.fin = nuevo
+			nuevo.siguiente = self.inicio
+			self.inicio = nuevo
 
-	#Metodo que saca elementos de la cola
-	def dqueue(self):
-		numero = self.inicio.getTexto()
-		inicio = self.inicio.siguiente
+	def pop(self):
+		num = self.inicio.getTexto()
+		self.inicio = self.inicio.siguiente
 		if self.inicio == None:
 			self.fin = None
 
-		return str(numero) 
+		return str(num)
 
-	def imprimitCola(self):
+	def imprimiPila(self):
 		if self.inicio == None:
-			print("La Cola esta Vacia")
-		else: 
+			print("ups no hay nada la lista esta vacia")
+		else:
 			val = True
 			temp = self.inicio
 			while val:
@@ -40,7 +39,7 @@ class Cola(object):
 				else:
 					temp = temp.siguiente
 
-	def graphCola(self):
+	def graphPila(self):
 		dot = Digraph(comment='GraficaListaSimple')
 		dot  #doctest: +ELLIPSIS
 		temp = self.inicio
@@ -53,4 +52,4 @@ class Cola(object):
 				dot.edge(str(temp.indice), str(temp.siguiente.indice), constraint='false')
 				temp = temp.siguiente
 			print(dot.source)
-			dot.render('Graficas/imgCola.dot', view=False)
+			dot.render('Graficas/imgPila.dot', view=False)
