@@ -293,7 +293,7 @@ class MatrizDispersa(object):
 				elif temp_d.abajo != None and temp_d != temp:
 					dot.node(str(temp_d.indice),str(temp_d.correo))
 					dot.node(str(temp_d.abajo.indice),str(temp_d.abajo.correo))
-					dot.edge(str(temp_d.indice),str(temp.abajo.correo),constraint='true')     
+					dot.edge(str(temp_d.indice),str(temp.abajo.indice),constraint='true')     
 					temp_d = temp_d.abajo
 				else:
 					temp_d = temp_d.abajo
@@ -304,7 +304,7 @@ class MatrizDispersa(object):
 			temp_a = temp2
 			while(temp_a != None):
 				if(temp_a.siguiente != None):
-					dot.node(str(temp_a.dominio),str(temp_a.doiminio))
+					dot.node(str(temp_a.dominio),str(temp_a.dominio))
 					dot.node(str(temp_a.siguiente.dominio),str(temp_a.siguiente.correo))
 					dot.edge(str(temp_a.indice),str(temp_a.siguiente.indice),constraint='true')     
 					temp_a = temp_a.siguiente
