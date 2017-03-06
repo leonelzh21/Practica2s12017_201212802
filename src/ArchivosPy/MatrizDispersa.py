@@ -285,14 +285,9 @@ class MatrizDispersa(object):
 		while(temp != None):
 			temp_d = temp
 			while(temp_d != None):
-				if(temp_d.abajo != None and temp_d == temp):
-					dot.node(str(temp_d.indice),str(temp_d.letra))
-					dot.node(str(temp_d.abajo.indice),str(temp_d.abajo.letra))
-					dot.edge(str(temp_d.indice),str(temp.abajo.indice),constraint='true')     
-					temp_d = temp_d.abajo
-				elif temp_d.abajo != None and temp_d != temp:
-					dot.node(str(temp_d.indice),str(temp_d.correo))
-					dot.node(str(temp_d.abajo.indice),str(temp_d.abajo.correo))
+				if(temp_d.abajo != None):
+					dot.node(str(temp_d.indice),temp_d.letra)
+					dot.node(str(temp_d.abajo.indice),temp_d.abajo.letra)
 					dot.edge(str(temp_d.indice),str(temp.abajo.indice),constraint='true')     
 					temp_d = temp_d.abajo
 				else:
@@ -304,8 +299,8 @@ class MatrizDispersa(object):
 			temp_a = temp2
 			while(temp_a != None):
 				if(temp_a.siguiente != None):
-					dot.node(str(temp_a.dominio),str(temp_a.dominio))
-					dot.node(str(temp_a.siguiente.dominio),str(temp_a.siguiente.correo))
+					dot.node(str(temp_a.indice),str(temp_a.correo))
+					dot.node(str(temp_a.siguiente.indice),str(temp_a.siguiente.correo))
 					dot.edge(str(temp_a.indice),str(temp_a.siguiente.indice),constraint='true')     
 					temp_a = temp_a.siguiente
 				else:
@@ -320,8 +315,8 @@ class MatrizDispersa(object):
 				temp_p = temp4
 				while(temp_p != None):
 					if(temp_p.profundidad != None):
-						dot.node(str(temp_p.dominio),temp_p.correo)
-						dot.node(str(temp_p.profundidad.dominio),temp_p.profundidad.correo)
+						dot.node(str(temp_p.indice),temp_p.correo)
+						dot.node(str(temp_p.profundidad.indice),temp_p.profundidad.correo)
 						dot.edge(str(temp_p.indice),str(temp_p.profundidad.indice),constraint='true')
 						temp_p = temp_p.profundidad
 					else:

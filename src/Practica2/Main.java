@@ -12,8 +12,8 @@ package Practica2;
  */
 public class Main {
     public static void main(String[] args){
-        Menu menuprincipa = new Menu();
-        menuprincipa.setVisible(true);
-        menuprincipa.setLocationRelativeTo(null);
+        Menu menuprincipal = new Menu();
+        menuprincipal.setVisible(true);
+        menuprincipal.setLocationRelativeTo(null);
     }
 }
