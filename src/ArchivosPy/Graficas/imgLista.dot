@@ -1,21 +1,3 @@
 // GraficaListaSimple
 digraph {
-	0 [label=batman]
-	1 [label="Wonder woman"]
-		0 -> 1 [constraint=false]
-	1 [label="Wonder woman"]
-	2 [label=joker]
-		1 -> 2 [constraint=false]
-	2 [label=joker]
-	3 [label=supergirl]
-		2 -> 3 [constraint=false]
-	3 [label=supergirl]
-	4 [label=arrow]
-		3 -> 4 [constraint=false]
-	4 [label=arrow]
-	5 [label=flash]
-		4 -> 5 [constraint=false]
-	5 [label=flash]
-	6 [label="alex danvers"]
-		5 -> 6 [constraint=false]
 }

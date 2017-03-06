@@ -47,7 +47,7 @@ public class Menu extends javax.swing.JFrame {
         btnencolar = new javax.swing.JButton();
         btndescolar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jTextField6 = new javax.swing.JTextField();
+        txtingresarmatriz = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
@@ -221,6 +221,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jButton8.setText("Agregar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Eliminar");
 
@@ -239,7 +244,7 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtingresarmatriz, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(170, 170, 170)
@@ -262,7 +267,7 @@ public class Menu extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtingresarmatriz, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton8)
                 .addGap(18, 18, 18)
@@ -365,6 +370,15 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "se sacp"+r);
     }//GEN-LAST:event_btndescolarActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String dato = txtingresarmatriz.getText();
+        String [] correos = dato.split("@");
+        Conexion conect = new Conexion();
+        JOptionPane.showMessageDialog(this, correos[0]+" "+correos[1]);
+        String dato2 = conect.insertarMatriz(correos[0],correos[1]);
+        JOptionPane.showMessageDialog(this, dato2);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -418,7 +432,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
@@ -426,6 +439,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField txtcola;
     private javax.swing.JTextField txteliminarlista;
     private javax.swing.JTextField txtingresarList;
+    private javax.swing.JTextField txtingresarmatriz;
     private javax.swing.JTextField txtpila;
     // End of variables declaration//GEN-END:variables
 }

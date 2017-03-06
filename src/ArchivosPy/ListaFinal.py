@@ -1,8 +1,10 @@
+from flask import Flask,request,Response
 from ListaEnlazada import Nodo
 from ColaFinal import Cola
 from PilaFinal import Pila
+from MatrizDispersa import MatrizDispersa
 from graphviz import Digraph
-from flask import Flask,request,Response
+
 
 app = Flask('Practica2')
 class Lista(object):
@@ -94,7 +96,7 @@ def insertarenLista():
 @app.route('/eliminarenLista',methods = ['POST'])
 def eliminarenLista():
 	elemento = str(request.form['dato'])
-	listanueva.eliminar(elemento)
+	eliminado = listanueva.eleminar(elemento)
 	listanueva.graphLista()
 	return "Eliminado"
 
@@ -135,10 +137,22 @@ def pushPila():
 
 @app.route('/popPila',methods = ['POST'])
 def popPila():
-	elemento = str(request.form['POST'])
-	extraido = pilanueva.pop()
+	elemento = str(request.form['dato'])
+	extraido = str(pilanueva.pop())
 	pilanueva.graphPila()
 	return extraido
+
+
+#Aqui empiezan los metodsos de las matriz
+matriznueva = MatrizDispersa()
+@app.route('/insertarenMatriz',methods = ['POST'])
+def insertarenMatriz():
+	nombre = str(request.form['dato'])
+	dominio = str(request.form['dato2'])
+	matriznueva.ingresar(nombre,dominio)
+	matriznueva.graficar()
+	return "Usuario ingresado" + " " + nombre + "@" + dominio 
+
 
 
 

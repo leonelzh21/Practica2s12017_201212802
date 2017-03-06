@@ -21,7 +21,7 @@ class Cola(object):
 	#Metodo que saca elementos de la cola
 	def dqueue(self):
 		numero = self.inicio.getTexto()
-		inicio = self.inicio.siguiente
+		self.inicio = self.inicio.siguiente
 		if self.inicio == None:
 			self.fin = None
 

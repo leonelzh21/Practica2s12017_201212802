@@ -48,7 +48,7 @@ public class Conexion {
                 .add("dato", dato)
                 .build();
         try {
-            URL url = new URL("http://0.0.0.0:5000/eliminarenLista");
+        URL url = new URL("http://0.0.0.0:5000/eliminarenLista");
             Request request = new Request.Builder().url(url).post(formBody).build();
             Response response = webClient.newCall(request).execute();
             String response_string = response.body().string();//y este seria el string de las respuesta
@@ -140,6 +140,25 @@ public class Conexion {
                 .build();
         try {
             URL url = new URL("http://0.0.0.0:5000/popPila");
+            Request request = new Request.Builder().url(url).post(formBody).build();
+            Response response = webClient.newCall(request).execute();
+            String response_string = response.body().string();//y este seria el string de las respuesta
+            return response_string;
+        } catch (MalformedURLException ex) {
+            System.out.println(ex.toString());
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        }
+       return null;
+    }
+    
+    public static String insertarMatriz(String dato,String dato2){
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("dato", dato)
+                .add("dato2",dato2)
+                .build();
+        try {
+            URL url = new URL("http://0.0.0.0:5000/insertarenMatriz");
             Request request = new Request.Builder().url(url).post(formBody).build();
             Response response = webClient.newCall(request).execute();
             String response_string = response.body().string();//y este seria el string de las respuesta
